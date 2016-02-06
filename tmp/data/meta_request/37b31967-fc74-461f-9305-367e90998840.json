@@ -1,0 +1,1 @@
+[{"name":"process_action.action_controller","payload":{"controller":"ClassroomsController","action":"new","params":{"action":"new","controller":"classrooms"},"format":"html","method":"GET","path":"/classrooms/new"},"time":"2016-02-06T15:01:02.238-02:00","transaction_id":"9f412abfb47bc44a50e4","end":"2016-02-06T15:01:02.266-02:00","children":[],"duration":28.423508}]

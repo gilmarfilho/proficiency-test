@@ -1,0 +1,207 @@
+
+
+Started GET "/" for 127.0.0.1 at 2016-02-06 15:00:03 -0200
+  [1m[36mActiveRecord::SchemaMigration Load (36.8ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 3241ms (Views: 3218.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:07 -0200
+
+
+Started GET "/students/" for 127.0.0.1 at 2016-02-06 15:00:14 -0200
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (25.9ms)[0m  SELECT  "students".* FROM "students"  LIMIT 5 OFFSET 0
+  [1m[36m (0.8ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 314ms (Views: 260.2ms | ActiveRecord: 28.7ms)
+
+
+Started GET "/classrooms/" for 127.0.0.1 at 2016-02-06 15:00:47 -0200
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (24.6ms)[0m  SELECT  "classrooms".* FROM "classrooms"  LIMIT 5 OFFSET 0
+  [1m[36mCourse Load (1.9ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.9ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (0.5ms)[0m  [1mSELECT COUNT(*) FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (161.8ms)
+Completed 200 OK in 358ms (Views: 302.2ms | ActiveRecord: 32.6ms)
+
+
+Started GET "/subscribes/" for 127.0.0.1 at 2016-02-06 15:00:52 -0200
+Processing by SubscribesController#index as HTML
+  [1m[35mClassroom Load (0.8ms)[0m  SELECT "classrooms"."id", name FROM "classrooms" INNER JOIN "courses" ON "courses"."id" = "classrooms"."course_id"
+  [1m[36mStudent Load (2.5ms)[0m  [1mSELECT "students".* FROM "students"[0m
+  Rendered subscribes/index.html.erb within layouts/application (69.2ms)
+Completed 200 OK in 255ms (Views: 250.3ms | ActiveRecord: 3.2ms)
+
+
+Started POST "/subscribes" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+Processing by SubscribesController#save as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"bvlYbjOoJxHvBsJb8WBYdYmnM5Wzs2UDctybYzBpHH0=", "id"=>"1", "commit"=>"Adicionar"}
+  [1m[35mClassroom Load (0.3ms)[0m  SELECT  "classrooms".* FROM "classrooms"  WHERE "classrooms"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mStudent Load (0.2ms)[0m  [1mSELECT  "students".* FROM "students"  WHERE "students"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+Redirected to http://lvh.me:3000/classrooms/1
+Completed 302 Found in 30ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/classrooms/1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+Processing by ClassroomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mClassroom Load (1.6ms)[0m  SELECT  "classrooms".* FROM "classrooms"  WHERE "classrooms"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCourse Load (0.3ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  Rendered classrooms/show.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 207ms (Views: 195.8ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/bootstrap_and_overrides.css?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/modal.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/tab.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/transition.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/alert.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/popover.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/button.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap/affix.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/twitter/bootstrap.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2016-02-06 15:00:54 -0200
+
+
+Started GET "/classrooms/" for 127.0.0.1 at 2016-02-06 15:01:01 -0200
+Processing by ClassroomsController#index as HTML
+  [1m[35mClassroom Load (0.4ms)[0m  SELECT  "classrooms".* FROM "classrooms"  LIMIT 5 OFFSET 0
+  [1m[36mCourse Load (1.1ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1[0m  [["id", 1]]
+  [1m[35mCourse Load (0.6ms)[0m  SELECT  "courses".* FROM "courses"  WHERE "courses"."id" = $1 LIMIT 1  [["id", 2]]
+  [1m[36m (1.1ms)[0m  [1mSELECT COUNT(*) FROM "classrooms"[0m
+  Rendered classrooms/index.html.erb within layouts/application (41.2ms)
+Completed 200 OK in 197ms (Views: 193.1ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/classrooms/new" for 127.0.0.1 at 2016-02-06 15:01:02 -0200
+Processing by ClassroomsController#new as HTML
+Completed 401 Unauthorized in 27ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2016-02-06 15:01:02 -0200
+Processing by Devise::SessionsController#new as HTML
+  Rendered devise/shared/_links.html.erb (5.8ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (133.3ms)
+Completed 200 OK in 339ms (Views: 312.9ms | ActiveRecord: 2.8ms)
+
+
+Started GET "/students/" for 127.0.0.1 at 2016-02-06 15:01:07 -0200
+Processing by StudentsController#index as HTML
+  [1m[35mStudent Load (1.6ms)[0m  SELECT  "students".* FROM "students"  LIMIT 5 OFFSET 0
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM "students"[0m
+  Rendered students/index.html.erb within layouts/application (28.7ms)
+Completed 200 OK in 213ms (Views: 206.8ms | ActiveRecord: 2.2ms)
