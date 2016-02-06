@@ -1,25 +1,18 @@
 <div class="col-md-2"></div>
 <div class="col-md-8">
 	<div class="panel panel-default">
-	  <div class="panel-heading">Número da turma: <%= @classroom.id %></div>
+	  <div class="panel-heading"><%=@classroom.course.name %></div>
 	  	<div class="panel-body">
-			<p class="course-name">Curso: <%= @classroom.course.name %></p>
-			<table class="table table-hover">
-				<tr>
-					<th>Nome</th>
-					<th>Data</th>
-				</tr>
-				<% @classroom.students_id.each do |student| %>
-				<tr>
-					<th><%= link_to classroom.id, classroom, class:"btn btn-link" %></th>
-					<th><%= classroom.course.name %></th>
-					<th><%= link_to 'Editar', edit_classroom_path(classroom) %></th>
-					<th><%= link_to 'Excluir', classroom_path(classroom), method: :delete, data: { confirm: 'Are you sure?', class:'btn btn-link' } %></th>
-				</tr>
+			<p class="status">Turma: <%= @classroom.id %></p>
 			<p class="actions">
 				<%= link_to 'Editar', edit_classroom_path(@classroom), class:'btn btn-primary pull-left' %>
 				<%= link_to 'Excluir', classroom_path(@classroom), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger pull-right' %>
 			</p>
+			<% if !@students[0] == nil %>
+				<% @students.each do |s| %>
+					<%= s.name %>
+				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>

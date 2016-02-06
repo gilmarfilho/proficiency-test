@@ -17,12 +17,12 @@
 	<br>
 
 	<%= f.label :register_number, "Número de registro" %><br>
-	<%= f.number_field :register_number, placeholder:"Digite o número de registro do aluno", required:"", class:"form-control" %><br>
+	<%= f.text_field :register_number, placeholder:"Digite o número de registro do aluno", required:"", class:"form-control", id:"register_number" %><br>
 	
 	<br>
 
 	<%= f.label :status, "Status" %><br>
-	<%= f.number_field :status, placeholder:"Digite o status do aluno", required:"", class:"form-control" %><br>
+	<%= f.text_field :status, placeholder:"Digite o status do aluno", required:"", class:"form-control", id:"status" %><br>
 
 	<%= f.submit "Ok", class: "btn btn-success" %>
 <% end %>

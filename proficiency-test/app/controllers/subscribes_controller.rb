@@ -3,8 +3,16 @@ class SubscribesController < ApplicationController
 		@classrooms = Classroom.select(:id, :name).joins(:course)
 		@students = Student.all
 	end
-
+	
 	def save
-		redirect_to Classroom.find(:classroom_id)
+		@classroom = Classroom.find(1)
+		student = Student.find(1)
+		@classroom.student_id[@classroom.student_id.size] = student.id
+		@classroom.entry_at[@classroom.entry_at.size] = Date.current
+		if @classroom.save
+			redirect_to @classroom
+		else
+			render 'index'
+		end
 	end
 end

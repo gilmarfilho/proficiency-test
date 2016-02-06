@@ -12,6 +12,11 @@ class ClassroomsController < ApplicationController
 
 	def show
 		@classroom = Classroom.find(params[:id])
+		studentsId = @classroom.student_id
+		@students = []
+		studentsId.each do |s|
+			@students <= s.name
+		end
 	end
 
 	def create
