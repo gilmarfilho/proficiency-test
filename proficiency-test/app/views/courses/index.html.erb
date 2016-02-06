@@ -1,0 +1,19 @@
+<h2>Cursos <%= link_to 'Criar', new_course_path, class:"btn btn-success pull-right" %></h2>
+<br>
+<table class="table table-hover">
+	<tr>
+		<th>Nome</th>
+		<th>Status</th>
+		<th>Ações</th>
+		<th></th>
+	</tr>
+	<% @courses.each do |course| %>
+	<tr>
+		<th><%= link_to course.name, course, class:"btn btn-link" %></th>
+		<th><%= course.status %></th>
+		<th><%= link_to 'Editar', edit_course_path(course) %></th>
+		<th><%= link_to 'Excluir', course_path(course), method: :delete, data: { confirm: 'Are you sure?', class:'btn btn-link' } %></th>
+	</tr>
+	<% end %>
+</table>
+<%= paginate @courses, theme:"twitter-bootstrap-3" %>

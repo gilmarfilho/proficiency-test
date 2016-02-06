@@ -1,13 +1,21 @@
-<h1>Estudantes</h1>
-
-<% @students.each do |student| %>
-	<div>
-		<p class="name"><%= link_to student.name, student %>
-		<%= link_to 'Edit', edit_student_path(student) %>
-		<%= link_to 'Delete', student_path(student), method: :delete, data: { confirm: 'Are you sure?' } %>
-		</p>
-		<p class="date"><%= student.created_at.strftime("%B %d, %Y") %></p>
-	</div>
-<% end %>
-
-<%= paginate @students %>
+<h2>Estudantes <%= link_to 'Criar', new_student_path, class:"btn btn-success pull-right" %></h2>
+<br>
+<table class="table table-hover">
+	<tr>
+		<th>Nome</th>
+		<th>Número de registro</th>
+		<th>Status</th>
+		<th>Ações</th>
+		<th></th>
+	</tr>
+	<% @students.each do |student| %>
+	<tr>
+		<th><%= link_to student.name, student, class:"btn btn-link" %></th>
+		<th><%= student.register_number %></th>
+		<th><%= student.status %></th>
+		<th><%= link_to 'Editar', edit_student_path(student) %></th>
+		<th><%= link_to 'Excluir', student_path(student), method: :delete, data: { confirm: 'Are you sure?', class:'btn btn-link' } %></th>
+	</tr>
+	<% end %>
+</table>
+<%= paginate @students, theme:"twitter-bootstrap-3" %>

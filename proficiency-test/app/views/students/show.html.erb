@@ -1,13 +1,14 @@
-<div id="student_content">
-	<h1 class="name"><%= @student.name %></h1>
-	<p class="register_number">Número de registro: <%= @student.register_number %></p>
-
-	<p class="status">Status: <%= @student.status %></p>
-
-	<p class="actions">
-		<%= link_to 'Edit', edit_student_path(@student) %>
-		<%= link_to 'Delete', student_path(@student), method: :delete, data: { confirm: 'Are you sure?' } %>
-		<br><br>
-		Criado <%= time_ago_in_words(@student.created_at) %> atrás
-	</p>
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<div class="panel panel-default">
+	  <div class="panel-heading"><%= @student.name %></div>
+	  	<div class="panel-body">
+			<p class="register_number">Número de registro: <%= @student.register_number %></p>
+			<p class="status">Status: <%= @student.status %></p>
+			<p class="actions">
+				<%= link_to 'Editar', edit_student_path(@student), class:'btn btn-primary pull-left' %>
+				<%= link_to 'Excluir', student_path(@student), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger pull-right' %>
+			</p>
+		</div>
+	</div>
 </div>

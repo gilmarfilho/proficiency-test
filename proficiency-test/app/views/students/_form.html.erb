@@ -10,18 +10,19 @@
 		</div>
 	<% end %>
 	
-	<%= f.label :name %><br>
-	<%= f.text_field :name %><br>
-	
+	<%= f.label :name, "Nome" %><br>
+	<%= f.text_field :name, placeholder:"Digite o nome do aluno", required:"", class:"form-control" %>
 	<br>
-	
-	<%= f.label :register_number %><br>
-	<%= f.text_field :register_number %><br>
 	
 	<br>
 
-	<%= f.label :status %><br>
-	<%= f.number_field :status %><br>
+	<%= f.label :register_number, "Número de registro" %><br>
+	<%= f.number_field :register_number, placeholder:"Digite o número de registro do aluno", required:"", class:"form-control" %><br>
+	
+	<br>
 
-	<%= f.submit %>
+	<%= f.label :status, "Status" %><br>
+	<%= f.number_field :status, placeholder:"Digite o status do aluno", required:"", class:"form-control" %><br>
+
+	<%= f.submit "Ok", class: "btn btn-success" %>
 <% end %>

@@ -1,8 +1,8 @@
 class CoursesController < ApplicationController
 	def index
-		@courses = Course.all.order('created_at DESC')
+		@courses = Course.all.order('created_at DESC').page(params[:page]).per(5)
 	end
-
+	
 	def new
 		@course = Course.new
 	end
@@ -28,7 +28,7 @@ class CoursesController < ApplicationController
 	def update
 		@course = Course.find(params[:id])
 
-		if @course.update(params[:course].permit(:name, :register_number, :status)
+		if @course.update(params[:course].permit(:name, :register_number, :status))
 			redirect_to @course
 		else
 			render 'edit'

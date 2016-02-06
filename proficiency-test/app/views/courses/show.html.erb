@@ -1,0 +1,14 @@
+<div class="col-md-2"></div>
+<div class="col-md-8">
+	<div class="panel panel-default">
+	  <div class="panel-heading"><%= @course.name %></div>
+	  	<div class="panel-body">
+			<p class="status">Status: <%= @course.status %></p>
+			<p class="description">Descrição: <%= @course.description %></p>
+			<p class="actions">
+				<%= link_to 'Editar', edit_course_path(@course), class:'btn btn-primary pull-left' %>
+				<%= link_to 'Excluir', course_path(@course), method: :delete, data: { confirm: 'Are you sure?' }, class:'btn btn-danger pull-right' %>
+			</p>
+		</div>
+	</div>
+</div>

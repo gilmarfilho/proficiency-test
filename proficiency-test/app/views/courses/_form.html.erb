@@ -1,0 +1,27 @@
+<%= form_for @course do |f| %>
+	<% if @course.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@course.errors.count, "error") %> prevented this course from saving:</h2>
+			<ul>
+				<% @course.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<%= f.label :name, "Nome" %><br>
+	<%= f.text_field :name, placeholder:"Digite o nome do curso", required:"", class:"form-control" %>
+	<br>
+
+	<%= f.label :status, "Status" %><br>
+	<%= f.number_field :status, placeholder:"Digite o status do curso", required:"", class:"form-control" %>
+	<br>
+
+	<%= f.label :description, "Descrição" %><br>
+	<%= f.text_area :description, placeholder:"Digite a descrição do curso", required:"", class:"form-control" %>
+
+	<br>
+	
+	<%= f.submit "Ok", class: "btn btn-success" %>
+<% end %>
