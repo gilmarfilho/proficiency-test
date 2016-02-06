@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   resources :students
   resources :courses
   resources :classrooms
+
+  root "welcome#index"
 
   get 'subscribes' => 'subscribes#index'
   post 'subscribes' => 'subscribes#save'
