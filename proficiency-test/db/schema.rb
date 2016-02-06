@@ -11,25 +11,42 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205233907) do
+ActiveRecord::Schema.define(version: 20160206063848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "courses", force: true do |t|
-    t.string   "name"
-    t.string   "description"
-    t.integer  "status"
+  create_table "classrooms", force: true do |t|
+    t.datetime "entry_at",   default: [], array: true
+    t.integer  "course_id"
+    t.integer  "student_id", default: [], array: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "students", force: true do |t|
-    t.string   "name"
-    t.string   "register_number"
+  add_index "classrooms", ["course_id"], name: "index_classrooms_on_course_id", using: :btree
+  add_index "classrooms", ["student_id"], name: "index_classrooms_on_student_id", using: :btree
+
+  create_table "courses", force: true do |t|
+    t.string   "name",         limit: 25
+    t.string   "description",  limit: 25
     t.integer  "status"
+    t.integer  "classroom_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "courses", ["classroom_id"], name: "index_courses_on_classroom_id", using: :btree
+
+  create_table "students", force: true do |t|
+    t.string   "name",            limit: 25
+    t.string   "register_number", limit: 25
+    t.integer  "status"
+    t.integer  "classroom_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "students", ["classroom_id"], name: "index_students_on_classroom_id", using: :btree
 
 end

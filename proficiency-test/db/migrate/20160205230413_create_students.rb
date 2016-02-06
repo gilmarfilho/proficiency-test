@@ -4,6 +4,7 @@ class CreateStudents < ActiveRecord::Migration
       t.string :name, limit: 25
       t.string :register_number, limit: 25
       t.integer :status
+      t.belongs_to :classroom, index:true
 
       t.timestamps
     end

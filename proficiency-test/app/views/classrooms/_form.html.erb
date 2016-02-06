@@ -1,0 +1,19 @@
+<%= form_for @classroom do |f| %>
+	<% if @classroom.errors.any? %>
+		<div id="errors">
+			<h2><%= pluralize(@classroom.errors.count, "error") %> prevented this classroom from saving:</h2>
+			<ul>
+				<% @classroom.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+		</div>
+	<% end %>
+	
+	<%= f.label :course_id, "Curso" %><br>
+	<%= f.number_field :course_id %>
+	< select_tag :course_id, options_from_collection_for_select(@courses, "id", "name"), class:"form-control" >
+	<br>
+
+	<%= f.submit "Ok", class: "btn btn-success" %>
+<% end %>

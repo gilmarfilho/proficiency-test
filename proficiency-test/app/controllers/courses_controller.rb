@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
 	def index
-		@courses = Course.all.order('created_at DESC').page(params[:page]).per(5)
+		@courses = Course.all.page(params[:page]).per(5)
 	end
 	
 	def new

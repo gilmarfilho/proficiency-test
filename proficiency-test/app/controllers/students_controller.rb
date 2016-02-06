@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
 	def index
-		@students = Student.all.order('created_at DESC').page(params[:page]).per(5)
+		@students = Student.all.page(params[:page]).per(5)
 	end
 
 	def new
