@@ -43,9 +43,6 @@ class ClassroomsController < ApplicationController
 		redirect_to classrooms_path
 	end
 
-	def subscribe
-	end
-
 	private
 
 	def classroom_params

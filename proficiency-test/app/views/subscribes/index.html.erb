@@ -1,0 +1,15 @@
+<div class="panel panel-default">
+  <div class="panel-heading">Selecione uma turma</div>
+  	<div class="panel-body">
+		<%= form_tag '/subscribes', multipart: true do %>
+			<label>Turma</label><br>
+			<%= select_tag :classroom_id, options_from_collection_for_select(@classrooms, "id", "name"), class:"form-control" %>
+			<br>
+			<label>Aluno</label><br>
+			<%= select_tag :id, options_from_collection_for_select(@students, "id", "name"), class:"form-control" %>
+			<br>
+			<%= submit_tag "Adicionar", controller:"subscribes", action:"save", class:"btn btn-success" %>
+		<% end %>
+	</div>
+  </div>
+</div>
