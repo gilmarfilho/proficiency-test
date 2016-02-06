@@ -1,4 +1,12 @@
 pt-BR:
+  views:
+    pagination:
+      previous: "Anterior"
+      next: "Próximo"
+      last: "Último"
+      first: "Primeiro"
+      truncate: "..."
+
   enumerations:
     marital_status:
       single: "Solteiro(a)"
